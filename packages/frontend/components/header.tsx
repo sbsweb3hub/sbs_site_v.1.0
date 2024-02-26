@@ -3,9 +3,9 @@ import { useState } from "react";
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
-import Logo from "@/public/logo_w3a.svg";
+import Logo from "@/public/money_bag.png";
 import { Button } from "@nextui-org/react";
-import Owl from "@/public/owl.svg";
+import Wave from "@/public/splash_png.png";
 import {
   Dropdown,
   DropdownItem,
@@ -23,35 +23,38 @@ const Header = () => {
   const { isConnect, handleConnectNotice } = useWalletStore();
 
   return (
-    <div className="sticky top-0 z-10 flex justify-center relative shadow-lg h-[85px] items-center bg-[#6078F9]">
+    <div className="sticky top-0 z-10 flex justify-center relative shadow-lg h-[85px] items-center bg-[#a0dd85]">
       <Link
         href={"/"}
         className="max-[960px]:invisible flex absolute items-center left-[36px]"
       >
         <Image src={Logo} alt={""} height={40}></Image>
       </Link>
+
+      {isConnect ? (
+        <>
       <div className="max-[960px]:invisible flex flex-row justify-between content-center">
         <Link
-          href={"/"}
+          href={"/create"}
           className="font-inter text-white hover:text-[#FFFFFF8F] font-bold text-[24px] not-italic"
         >
-          Create Order
+          Create Project
         </Link>
-        <Image src={Owl} alt={""} height={42} className="mx-[13px]" />
+        <Image src={Wave} alt={""} height={42} className="mx-[13px]" />
         {!isConnect ? (
           <Link
             href=""
             onClick={handleConnectNotice}
             className="font-inter text-white hover:text-[#FFFFFF8F] font-bold text-[24px] not-italic"
           >
-            Your Orders
+            My Projects
           </Link>
         ) : (
           <Link
-            href="/orders"
+            href="/ownerprojects"
             className="font-inter text-white hover:text-[#FFFFFF8F] font-bold text-[24px] not-italic"
           >
-            Your Orders
+            My Project
           </Link>
         )}
       </div>
@@ -63,19 +66,34 @@ const Header = () => {
           <DropdownMenu aria-label="menu" variant="light">
             <DropdownSection showDivider>
               <DropdownItem>
-                <Link href={"/"} className="font-inter">
-                  Create Order
+                <Link href={"/create"} className="font-inter">
+                  Create Project
                 </Link>
               </DropdownItem>
             </DropdownSection>
             <DropdownItem>
-              <Link href={"/orders"} className="font-inter">
-                Your Orders
+              <Link href={"/ownerprojects"} className="font-inter">
+                My Projects
               </Link>
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </div>
+      </>
+       ) : ( 
+        <p className="typing-text text-white text-[24px] not-italic">
+          SBS Web3 Hub
+        </p>
+        // <div>
+        //   <DropdownMenu>
+        //    <DropdownItem>
+        //       <Link href={"/orders"} className="font-inter">
+        //         Your Orders
+        //       </Link>
+        //     </DropdownItem>
+        //   </DropdownMenu>
+        //   </div>
+        )}
       <div className="absolute right-[170px]">
           <SwitchNetworkDropdown />
       </div>

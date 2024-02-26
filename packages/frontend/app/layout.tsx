@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Rainbow>
           <Providers>
-            <main className="light text-foreground bg-[#D2D9EE]">
+            <main className="light text-foreground bg-[#c7fcec]">
               <Header />
               {children}
               <Footer />

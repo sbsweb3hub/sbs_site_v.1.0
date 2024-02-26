@@ -1,6 +1,13 @@
 import { create } from "zustand";
-import { ethers } from "ethers";
+import { Contract, ethers } from "ethers";
 import ERC20abi from "../app/ERC20"; // TODO: move to common place
+import abiCreateProject from "./abi/abiCreateProject";
+import abiProjectsKeeper from "./abi/abiProjectsKeeper";
+import abiVoting from "./abi/abiVoting";
+import abiStartFunds from "./abi/abiStartFunds";
+import abiOrdering from "./abi/abiOrdering";
+import abiClaiming from "./abi/abiClaiming";
+import abiGetFundForProject from "./abi/abiGetFundForProject";
 
 interface WalletState {
   isConnect: boolean;
@@ -17,9 +24,18 @@ interface WalletState {
   contractSigner: ethers.Contract | any;
   usdtSigner: ethers.Contract | any;
   ethSigner: ethers.Contract | any;
+  createProjectSigner: ethers.Contract | any;
   positionManagerContractAbi: string;
   USDTContractAbi: string[];
   ETHContractAbi: string[];
+  contractAddrCreateProject: string;
+  ABIcreateProject: any[];
+  ABIprojectsKeeper: any[];
+  ABIvoting: any[];
+  ABIstartFunds: any[];
+  ABIordering: any[];
+  ABIclaiming: any[];
+  ABIgetFunds: any[];
   networks: any[];
   setIsOpenModalConnect: (isOpen: boolean) => void;
   setIsOpenCommonModal: (isOpen: boolean) => void;
@@ -32,6 +48,7 @@ interface WalletState {
   setContractSigner: (signer: ethers.Contract | any) => void;
   setUsdtSigner: (signer: ethers.Contract | any) => void;
   setEthSigner: (signer: ethers.Contract | any) => void;
+  setCreateProjectSigner: (signer: ethers.Contract | any) => void;
   reinitializeContracts: () => void;
   handleIsConnected: () => void;
   handleConnectNotice: () => void;
@@ -50,13 +67,21 @@ export const useWalletStore = create<WalletState>((set, get) => ({
   contractSigner: "",
   usdtSigner: "",
   ethSigner: "",
-  positionManagerContractAddress: process.env
-    .NEXT_PUBLIC_POSITION_MANAGER_ADDRESS_MUMBAI!,
+  createProjectSigner: "",
+  contractAddrCreateProject: process.env.CREATE_PROJECT_CONTRACT!,
+  positionManagerContractAddress: process.env.NEXT_PUBLIC_POSITION_MANAGER_ADDRESS_MUMBAI!,
   USDTContractAddress: process.env.NEXT_PUBLIC_USDT_ERC20_ADDRESS_MUMBAI!,
   ETHContractAddress: process.env.NEXT_PUBLIC_ETH_ERC20_ADDRESS_MUMBAI!,
   positionManagerContractAbi: process.env.NEXT_PUBLIC_POSITION_MANAGER_ABI!,
   USDTContractAbi: ERC20abi,
   ETHContractAbi: ERC20abi,
+  ABIcreateProject: abiCreateProject,
+  ABIprojectsKeeper: abiProjectsKeeper,
+  ABIvoting: abiVoting,
+  ABIstartFunds: abiStartFunds,
+  ABIordering: abiOrdering,
+  ABIclaiming: abiClaiming,
+  ABIgetFunds: abiGetFundForProject,
   isOpenModalConnect: false,
   networks: [
     {
@@ -103,6 +128,7 @@ export const useWalletStore = create<WalletState>((set, get) => ({
   setContractSigner: (contract) => set({ contractSigner: contract }),
   setUsdtSigner: (contract) => set({ usdtSigner: contract }),
   setEthSigner: (contract) => set({ ethSigner: contract }),
+  setCreateProjectSigner: (contract) => set({createProjectSigner: contract}),
   reinitializeContracts: async () => {
     if (typeof window.ethereum !== "undefined") {
       const accounts = (await window.ethereum.request({
@@ -118,6 +144,14 @@ export const useWalletStore = create<WalletState>((set, get) => ({
         positionManagerContractAbi,
         USDTContractAbi,
         ETHContractAbi,
+        contractAddrCreateProject,
+        ABIcreateProject,
+        ABIprojectsKeeper,
+        ABIvoting,
+        ABIstartFunds,
+        ABIordering,
+        ABIclaiming,
+        ABIgetFunds,
       } = get();
 
       const newContractSigner = new ethers.Contract(
@@ -138,6 +172,12 @@ export const useWalletStore = create<WalletState>((set, get) => ({
         signer
       );
 
+      // const newCreateProjectSigner = new ethers.Contract(
+      //   contractAddrCreateProject,
+      //   ABIcreateProject,
+      //   signer
+      // );
+
       set({
         account: accounts[0],
         provider,
@@ -148,6 +188,7 @@ export const useWalletStore = create<WalletState>((set, get) => ({
         contractSigner: newContractSigner,
         usdtSigner: newUsdtSigner,
         ethSigner: newEthSigner,
+       // createProjectSigner: newCreateProjectSigner,
       });
     }
   },
