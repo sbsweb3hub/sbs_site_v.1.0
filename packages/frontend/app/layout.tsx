@@ -26,7 +26,6 @@ export default function RootLayout({
             <main className="light text-foreground bg-[#c7fcec]">
               <Header />
               {children}
-              <Footer />
             </main>
           </Providers>
         </Rainbow>

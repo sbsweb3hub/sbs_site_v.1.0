@@ -14,7 +14,7 @@ const StartPage = () => {
   return (
    
     <div className="flex flex-col items-center
-               rounded-[15px] max-[466px]:w-11/12 max-[640px]:px-[15px] max-[640px]:pb-[15px] sm:w-[664px] sm:h-[1510px] mt-[129px] max-[472px]:mx-[10px]">
+               rounded-[15px] max-[466px]:w-11/12 max-[640px]:px-[15px] max-[640px]:pb-[15px] sm:w-[664px] h-full max-[472px]:mx-[10px]">
     <Greating />
       <Card isFooterBlurred radius="lg" className="border-none">
         <Image
