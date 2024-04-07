@@ -3,7 +3,7 @@ import {Card, CardHeader, CardBody, CardFooter, Divider, Link, Image} from "@nex
 
 export default function Greating() {
   return (
-    <Card className="max-w-[750px] h-[420px]">
+    <Card fullWidth className="max-w-[750px] h-[420px]">
       <CardHeader className="flex gap-3">
         <Image
           alt="nextui logo"
