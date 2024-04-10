@@ -106,7 +106,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
   const hashLink = process.env.NEXT_PUBLIC_HASH_LINK_MUMBAI;
   const hashLinkPlus = hashLink + txhash;
 
-  const addrCreateProject = "0xf99c471d61Ce5d6e7BDdC6015df0eEF60964257c";
+  const addrCreateProject = "0xEaE9C5B069e3d068b990C1fc1DD200A44e87D7F7";
   const createProjectProvider = new ethers.Contract(
       addrCreateProject,
       ABIcreateProject,
@@ -117,25 +117,25 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
       ABIcreateProject,
       signer
     );
-  const addrProjectKeeper = "0x39ecB18570AA38858CeB09014F9cE5c541C85c9d";
+  const addrProjectKeeper = "0x12870B750A6C4FCDA70a7F06FE3F84aE61857D3d";
   const projectKeeperProvider = new ethers.Contract(
       addrProjectKeeper,
       ABIprojectsKeeper,
       provider
     );
-  const addrVoting = "0xFAab524A2F823096256FCdF25576eEBDe697f3b9";
+  const addrVoting = "0x310762F6C124Fa8177865AaBc84F806bcdDC5388";
   const votingProvider = new ethers.Contract(
       addrVoting ,
       ABIvoting,
       provider
     );
-    const addrStartFunds = "0x84813E39323c0C127FAF2af68D64A2Ce7a4ea2A7";
+    const addrStartFunds = "0x9721f8F39c84CDeC6559214627D0186744c88101";
     const startFundsSigner = new ethers.Contract(
       addrStartFunds ,
       ABIstartFunds,
       signer
     );
-    const addrGetFunds = "0x500cf62ff7bE4Ab42060FF127BDA237E7cB370D8";
+    const addrGetFunds = "0xa12c590345AFb37B89A829A39B8B33D1EF4661eb";
     const getFundsSigner = new ethers.Contract(
       addrGetFunds,
       ABIgetFunds,

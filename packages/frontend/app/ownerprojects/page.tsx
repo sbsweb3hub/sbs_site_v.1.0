@@ -54,19 +54,19 @@ export default function Orders() {
 
   const [amoutnProjects, setAmoutnProjects] = useState<number>(0);
 
-  const addrCreateProject = "0xf99c471d61Ce5d6e7BDdC6015df0eEF60964257c";
+  const addrCreateProject = "0xEaE9C5B069e3d068b990C1fc1DD200A44e87D7F7";
   const createProjectProvider = new ethers.Contract(
       addrCreateProject,
       ABIcreateProject,
       provider
     );
-  const addrProjectKeeper = "0x39ecB18570AA38858CeB09014F9cE5c541C85c9d";
+  const addrProjectKeeper = "0x12870B750A6C4FCDA70a7F06FE3F84aE61857D3d";
   const projectKeeperProvider = new ethers.Contract(
       addrProjectKeeper,
       ABIprojectsKeeper,
       provider
     );
-  const addrVoting = "0xFAab524A2F823096256FCdF25576eEBDe697f3b9";
+  const addrVoting = "0x310762F6C124Fa8177865AaBc84F806bcdDC5388";
   const votingProvider = new ethers.Contract(
       addrVoting ,
       ABIvoting,

@@ -201,8 +201,8 @@ export const useWalletStore = create<WalletState>((set, get) => ({
       await get().reinitializeContracts();
       const { network } = get();
       if (network) {
-        if (Number(network.chainId) !== 80001) {
-          console.log("Wrong network. Need POL");
+        if (Number(network.chainId) !== 11155111) {
+          console.log("Wrong network. Need Sepolia");
           // Обновите состояние, используя методы set
 
           try {
@@ -210,7 +210,7 @@ export const useWalletStore = create<WalletState>((set, get) => ({
               method: "wallet_switchEthereumChain",
               params: [
                 {
-                  chainId: "0x13881",
+                  chainId: "0xaa36a7",
                 },
               ],
             });
@@ -221,15 +221,15 @@ export const useWalletStore = create<WalletState>((set, get) => ({
                   method: "wallet_addEthereumChain",
                   params: [
                     {
-                      chainId: "0x13881",
-                      chainName: "Mumbai",
-                      rpcUrls: ["https://rpc-mumbai.maticvigil.com/"],
+                      chainId: "0xaa36a7",
+                      chainName: "Sepolia",
+                      rpcUrls: ["https://eth-sepolia.g.alchemy.com/v2/demo/"],
                       nativeCurrency: {
-                        name: "MATIC",
-                        symbol: "MATIC",
+                        name: "ETH",
+                        symbol: "ETH",
                         decimals: 18,
                       },
-                      blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
+                      blockExplorerUrls: ["https://sepolia.etherscan.io/"],
                     },
                   ],
                 });
