@@ -80,7 +80,7 @@ export default function Home() {
   //   ERC20abi,
   //   provider
   // );
-  const addrCreateProject = "0xf99c471d61Ce5d6e7BDdC6015df0eEF60964257c";
+  const addrCreateProject = "0xEaE9C5B069e3d068b990C1fc1DD200A44e87D7F7";
   const createProjectSigner = new ethers.Contract(
       addrCreateProject,
       ABIcreateProject,
@@ -515,7 +515,7 @@ export default function Home() {
                         onChange={setTokenMinSeed}
                         value={minSeed}
                         type="number"
-                        label="Minimum seed"
+                        label="Min tokens seed"
                         variant="bordered"
                         className="w-[187px]"
                         radius="lg"

@@ -120,19 +120,19 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
   const hashLinkPlus = hashLink + txhash;
   
 
-  const addrCreateProject = "0xf99c471d61Ce5d6e7BDdC6015df0eEF60964257c";
+  const addrCreateProject = "0xEaE9C5B069e3d068b990C1fc1DD200A44e87D7F7";
   const createProjectProvider = new ethers.Contract(
       addrCreateProject,
       ABIcreateProject,
       provider
     );
-  const addrProjectKeeper = "0x39ecB18570AA38858CeB09014F9cE5c541C85c9d";
+  const addrProjectKeeper = "0x12870B750A6C4FCDA70a7F06FE3F84aE61857D3d";
   const projectKeeperProvider = new ethers.Contract(
       addrProjectKeeper,
       ABIprojectsKeeper,
       provider
     );
-  const addrVoting = "0xFAab524A2F823096256FCdF25576eEBDe697f3b9";
+  const addrVoting = "0x310762F6C124Fa8177865AaBc84F806bcdDC5388";
   const votingSigner = new ethers.Contract(
       addrVoting ,
       ABIvoting,
@@ -143,13 +143,13 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
       ABIvoting,
       provider
     );
-    const addrStartFunds = "0x84813E39323c0C127FAF2af68D64A2Ce7a4ea2A7";
+    const addrStartFunds = "0x9721f8F39c84CDeC6559214627D0186744c88101";
     const startFundsSigner = new ethers.Contract(
       addrStartFunds ,
       ABIstartFunds,
       signer
     );
-    const addrOrdering = "0x78d36b514FD0C2f4daBaa0Ce55879BB6aA6E8660";
+    const addrOrdering = "0xdBeb8462FF3FebEadED9Dd4fc954365A66e3f093";
     const orderingSigner = new ethers.Contract(
       addrOrdering,
       ABIordering,
@@ -160,7 +160,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
       ABIordering,
       provider
     );
-    const addrClaiming = "0xB6d52BCB41Fc0C6AdcfbA9135968334fD86B40a0";
+    const addrClaiming = "0x13D159d5775E9813b066883dEDf7711A256cDb77";
     const claimingSigner = new ethers.Contract(
       addrClaiming,
       ABIclaiming,
@@ -550,7 +550,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
 
     //  user describe every stes
   function handleViewDescStep(e: React.ChangeEvent<HTMLSelectElement>) {
-    //const stepDesc = // вытаскиваем текст которые храниться в соотношение данных:
+    //const stepDesc = // вытаскиваем текст который хранится в соотношение данных:
                      // 1) e.target.value  - какой этап
                      // 2) params.id - какого проекта
                      // 3) account - кто владелец
@@ -598,6 +598,11 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
       setIsOpenCommonModal(false);
     };
 
+    console.log({isPublicSeed});
+    console.log({currentDateNumber})
+    console.log({timeHalf1_2})
+    console.log({isProjectAlive})
+
   return (
     <>
     <div className="flex flex-col h-full lg:h-screen flex flex-col items-center">
@@ -623,7 +628,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
             </div>
             <div className="flex justify-end text-[#f8f8ed] font-medium text-[16px] font-inter">
               <p>
-                Current seed, $Matic:{" "}{amountFund}
+                Current seed, $ETH:{" "}{amountFund}
               </p>
             </div>
           </CardHeader>
@@ -706,10 +711,11 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                       </div>
                       <div className="flex flex-row justify-start gap-[10px] mt-[5px]">
                         <Image src={DOLLAR} alt="" width={25} height={25}/>
-                        <p>Token's price, $Matic:{" "}{price.toFixed(4)}</p>
+                        <p>Token's price, $ETH:{" "}{price.toFixed(4)}</p>
                       </div>
                     </div>
-                    {isPublicSeed && currentDateNumber > timeHalf1_2 && isProjectAlive ? 
+                    {isPublicSeed && currentDateNumber > timeHalf1_2 && isProjectAlive && myOrdered != 0 ? 
+                    <div>
                     <Button
                       onClick={showClaimPreview}
                       className="
@@ -718,6 +724,16 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                     >
                       Claim tokens
                     </Button>
+                    
+                    <Button
+                      onClick={refund}
+                      className="
+                      bg-gradient-to-r from-blue-500 to-red-500 hover:from-pink-500 hover:to-yellow-500
+                      text-white w-[135px] h-[36px] rounded-[15px] mt-[18px] font-semibold font-inter text-[16px] ml-[10px]"
+                    >
+                      Refund
+                    </Button>
+                    </div>
                     : 
                     <>
                     {!isRefund && isPublicSeed ?
