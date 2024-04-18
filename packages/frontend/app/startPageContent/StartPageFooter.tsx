@@ -32,7 +32,7 @@ const StartPageFooter = () => {
                 <NavbarBrand>
 
                 </NavbarBrand>
-                <NavbarContent justify="center" className="flex gap-6">
+                <NavbarContent justify="center" className="flex flex-col sm:flex-row gap-6">
                     <NavbarItem>
                         <Link 
                             isExternal 
