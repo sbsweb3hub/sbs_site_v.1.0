@@ -87,7 +87,9 @@ const StartPageHeader = () => {
                         fontSize: '20px',
                     }}
                 >
-                    App Soon
+                    <a target="blank" href="https://docs.google.com/forms/d/e/1FAIpQLSf6hXqYqZDl-cdcpmmBznE9DpN3E7_siSZRRtiEc1JHwhT1qA/viewform">
+                        Join Beta
+                    </a>
                 </Button>
             </NavbarContent>
             <MediaQuery maxWidth={699}>
