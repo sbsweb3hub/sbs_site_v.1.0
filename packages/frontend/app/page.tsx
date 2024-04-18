@@ -63,11 +63,11 @@ export default function Home() {
     <>
       <>
         {!isConnect ? (
-          <div className="flex flex-col h-full flex flex-col items-center mt-[70px]">
+          <div className="flex flex-col h-full flex flex-col items-center">
             <StartPage />
           </div>
         ) : (
-          <div className="flex flex-col h-full flex flex-col items-center mt-[70px]">
+          <div className="flex flex-col h-full flex flex-col items-center">
             <ListProjects />
           </div>
           // <>

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/app/providers";
 import Header from "@/components/header";
 import { Rainbow } from "@/service/rainbow-kit-provider";
 import Footer from "@/components/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,12 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html className="dark" lang="en">
+      <body className={montserrat.className}>
         <Rainbow>
           <Providers>
-            <main className="light text-foreground bg-[#c7fcec]">
-              <Header />
+            <main className="text-foreground bg-[#1C1C1C]">
               {children}
             </main>
           </Providers>
