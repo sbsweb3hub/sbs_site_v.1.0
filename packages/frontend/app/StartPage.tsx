@@ -15,8 +15,7 @@ const StartPage = () => {
 
   return (
    
-    <div className="flex flex-col items-center
-               rounded-[15px] max-[466px]:w-11/12 max-[640px]:px-[15px] max-[640px]:pb-[15px] w-screen  h-full max-[472px]:mx-[10px]">
+    <div className="flex flex-col items-center w-screen  h-full">
 
         <StartPageHeader/>        
         <div
@@ -31,7 +30,7 @@ const StartPage = () => {
         >
           <LetterFadeInText text="Blaunchpad" useWaypoint={false}/>
         </div>
-        <div className="w-[959px] text-[32px] text-[#FFF] font-medium text-center mt-[16px]">
+        <div className="min-[965px]:w-[959px] w-11/12 text-[32px] text-[#FFF] font-medium text-center mt-[16px]">
           Our unbelievable platform will send your project to the moon inevitable. Just create and participate and have fun.
         </div>
         <Element name="launchpad" className="element"></Element>
