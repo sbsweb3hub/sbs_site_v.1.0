@@ -28,7 +28,7 @@ const ComingSoon = () => {
                     Coming Soon
                 </Button>
             </div>
-            <div className="flex min-[1400px]:justify-between justify-center max-[1399px]:gap-3 items-center mx-[32px]">
+            <div className="flex justify-center max-[1399px]:gap-3 gap-6 items-center mx-[32px]">
                 <div>
                     <LoadingCard />
                 </div>
