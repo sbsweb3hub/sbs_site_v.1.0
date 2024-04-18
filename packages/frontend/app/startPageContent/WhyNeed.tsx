@@ -1,5 +1,5 @@
 import React from "react";
-import {Accordion, AccordionItem, Avatar } from "@nextui-org/react";
+import { Divider } from "@nextui-org/react";
 
 export default function WhyNeed() {
     const angelContent =
@@ -11,59 +11,43 @@ export default function WhyNeed() {
 
   return (
     <>
-     <p className="typing-text text-left text-black-600/55 text-[24px] mt-[30px]">
-      Why do they need to use it?
-      </p>
-        <Accordion selectionMode="multiple">
-      <AccordionItem
-        key="1"
-        aria-label="Web3 project's angels"
-        startContent={
-          <Avatar
-            isBordered
-            color="primary"
-            radius="lg"
-            src="/portfel.jpeg"
-          />
-        }
-        subtitle="Safe & Openness"
-        title="Web3 project's angels"
-      >
-        {angelContent}
-      </AccordionItem>
-      <AccordionItem
-        key="2"
-        aria-label="Project's creators"
-        startContent={
-          <Avatar
-            isBordered
-            color="success"
-            radius="lg"
-            src="/idea.png"
-          />
-        }
-        subtitle="Fairness"
-        title="Project's creators"
-      >
-        {creatorContent}
-      </AccordionItem>
-      <AccordionItem
-        key="3"
-        aria-label="Crypto industry"
-        startContent={
-          <Avatar
-            isBordered
-            color="warning"
-            radius="lg"
-            src="/blockchain.png"
-          />
-        }
-        subtitle="Healthy development"
-        title="Crypto industry"
-      >
-        {industryContent}
-      </AccordionItem>
-    </Accordion>
+    <article className="flex flex-col h-[450px]">
+        <div className="flex flex-col">
+            <p className="text-lg text-[#FFF]">
+              Web3 business angels
+            </p>
+            <p className="text-sm text-[#D3D3D3]">
+              Safe & Openness
+            </p>
+            <p className="text-base text-[#FFF] mt-[10px]">
+              {angelContent}
+            </p>
+        </div>
+        <Divider className="my-4" />
+        <div className="flex flex-col">
+            <p className="text-lg text-[#FFF]">
+              Project's creators
+            </p>
+            <p className="text-sm text-[#D3D3D3]">
+              Fairness
+            </p>
+            <p className="text-base text-[#FFF] mt-[10px]">
+              {creatorContent}
+            </p>
+        </div>
+        <Divider className="my-4" />
+        <div className="flex flex-col">
+            <p className="text-lg text-[#FFF]">
+              Crypto industry
+            </p>
+            <p className="text-sm text-[#D3D3D3]">
+              Healthy development
+            </p>
+            <p className="text-base text-[#FFF] mt-[10px]">
+              {industryContent}
+            </p>
+        </div>
+    </article>
     </>
   );
 }
