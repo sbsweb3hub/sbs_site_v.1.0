@@ -4,12 +4,28 @@ import { Button, Input } from "@nextui-org/react";
 
 const NewsLetter = () => {
     
-    const [email, setEmail] = useState("");
+    const [email, setEmail] = useState<string>("");
+    const [isButtonDisabled, setButtonDisabled] = useState<boolean>(true);
+
+    const validateEmail = (email: string) => {
+        return String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    };
+
+    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>): void => { 
+        const emailInput = e.target.value;
+        setEmail(emailInput);
+        setButtonDisabled(!validateEmail(emailInput));
+    };
 
     const handleSubscribe = () => {
         console.log(email)
         alert("Thank you for subscribing! You will now receive the latest updates.")
         setEmail("")
+        setButtonDisabled(true)
     };
 
 
@@ -28,8 +44,9 @@ const NewsLetter = () => {
                     <div>
                         <Input
                             isClearable
+                            onClear={()=> setEmail("")}
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={handleEmailChange}
                             size="lg"
                             type="email" 
                             label="Email"
@@ -51,6 +68,7 @@ const NewsLetter = () => {
                                 height: '62px'
                             }}
                             onClick={handleSubscribe}
+                            disabled={isButtonDisabled} 
                         >
                             Subscribe
                         </Button>
