@@ -15,6 +15,10 @@ const StartPageHeader = () => {
     
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    };
+
     return (
         <Navbar 
             isMenuOpen={isMenuOpen}
@@ -104,6 +108,7 @@ const StartPageHeader = () => {
                                 duration={500} 
                                 className="text-[24px] hover:underline cursor-pointer" 
                                 color="foreground"
+                                onClick={closeMenu}
                             >
                                 Launchpad
                             </Link>
@@ -118,6 +123,7 @@ const StartPageHeader = () => {
                                 duration={500} 
                                 className="text-[24px] hover:underline cursor-pointer" 
                                 color="foreground"
+                                onClick={closeMenu}
                             >
                                 About Project
                             </Link>
@@ -132,6 +138,7 @@ const StartPageHeader = () => {
                             duration={500} 
                             className="text-[24px] hover:underline cursor-pointer" 
                             color="foreground"
+                            onClick={closeMenu}
                             >
                                 Newsletter
                             </Link>
