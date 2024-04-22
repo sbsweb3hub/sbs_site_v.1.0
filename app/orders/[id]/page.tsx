@@ -15,9 +15,6 @@ import { maxUint128 } from "viem";
 import defaultProvider from "../../defaultProvider";
 import abiContract from "../../abiContract";
 import { useWalletStore } from "@/service/store";
-const {
-  abi: INonfungiblePositionManagerABI,
-} = require("@uniswap/v3-periphery/artifacts/contracts/interfaces/INonfungiblePositionManager.sol/INonfungiblePositionManager.json");
 
 export default function OrderPage({ params }: { params: { id: string } }) {
   const {

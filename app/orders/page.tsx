@@ -16,9 +16,6 @@ import { columns } from "@/app/orders/data";
 import { maxUint128 } from "viem";
 import defaultProvider from "../defaultProvider";
 import abiContract from "../abiContract";
-const {
-  abi: INonfungiblePositionManagerABI,
-} = require("@uniswap/v3-periphery/artifacts/contracts/interfaces/INonfungiblePositionManager.sol/INonfungiblePositionManager.json");
 import { useWalletStore } from "@/service/store";
 
 interface Positions {
