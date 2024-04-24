@@ -17,6 +17,7 @@ import CommonModalWindow from "../CommonModalWindow";
 import ModalWindowTx from "../ModalWindowTx";
 import ERC20abi from "../ERC20";
 import { useWalletStore } from "@/service/store";
+import { AmountStepsSelects } from "./AmountStepsSelects/index";
 
 declare global {
   interface Window {
@@ -397,25 +398,6 @@ export default function Home() {
     }
     setAmountSteps(e.target.value);
 }
-//
-  const handleStepMonth_1 = (e: ChangeEvent<HTMLSelectElement>) => {
-    setStepMonth_1(e.target.value);
-   };
-   const handleStepMonth_2 = (e: ChangeEvent<HTMLSelectElement>) => {
-    setStepMonth_2(e.target.value);
-   };
-   const handleStepMonth_3 = (e: ChangeEvent<HTMLSelectElement>) => {
-    setStepMonth_3(e.target.value);
-   };
-   const handleStepMonth_4 = (e: ChangeEvent<HTMLSelectElement>) => {
-    setStepMonth_4(e.target.value);
-   };
-   const handleStepMonth_5 = (e: ChangeEvent<HTMLSelectElement>) => {
-    setStepMonth_5(e.target.value);
-   };
-   const handleStepMonth_6 = (e: ChangeEvent<HTMLSelectElement>) => {
-    setStepMonth_6(e.target.value);
-   };
 
   const [halfPrice, setHalfPrice] = useState<number>(0);
   const [predictBuySell, setPredictBuySell] = useState<number>(0);
@@ -454,7 +436,7 @@ export default function Home() {
                
                 
                 rounded-[15px] max-[466px]:w-11/12 max-640px]:px-[15px] max-[640px]:pb-[15px] sm:w-[464px] sm:h-[310px] mt-[129px] max-[472px]:mx-[10px]">
-                {isConnect ? (
+                {!isConnect ? (
                   <>
                     <div className="font-bold flex min-[466px]:flex-wrap max-[466px]:grid max-[466px]:grid-cols-1 md:flex-nowrap max-[466px]:gap-[15px] gap-[41px] mt-[15px]">
                       <Input
@@ -548,7 +530,7 @@ export default function Home() {
                         variant="bordered"
                         label="Amount steps"
                         //placeholder="Amount steps"
-                        className="w-[187px] mb-[10px]"
+                        className="w-[187px] mb-3"
                         radius="lg"
                         size="sm"
                         aria-label="coin"
@@ -560,185 +542,17 @@ export default function Home() {
                      </Select>
                 
                      </div>
-  {/* 4 STEPS */}
-                     {amountSteps == "4" ?
-                     <>
-                     <div>
-                      <Select onChange={handleStepMonth_1} variant="bordered"
-                        label="Months Seed" className="w-[187px] text-[#1d9fab]" radius="lg" size="sm"> 
-                       <SelectItem key="1" value="1" className="text-[#ffffff] bg-[#F9607CF0]">1</SelectItem>
-                       <SelectItem key="2" value="2" className="text-[#ffffff] bg-[#F9607CF0]">2</SelectItem>
-                       <SelectItem key="3" value="3" className="text-[#ffffff] bg-[#F9607CF0]">3</SelectItem>
-                     </Select>
-                      </div>
-                
-                       <div>
-                       <Select onChange={handleStepMonth_2} variant="bordered"
-                         label="Months 1st sprint" className="w-[187px]" radius="lg" size="sm">
-                        <SelectItem key="1" value="1" className="text-[#ffffff] bg-[#F9607CF0]">1</SelectItem>
-                        <SelectItem key="2" value="2" className="text-[#ffffff] bg-[#F9607CF0]">2</SelectItem>
-                        <SelectItem key="3" value="3" className="text-[#ffffff] bg-[#F9607CF0]">3</SelectItem>
-                        <SelectItem key="4" value="4" className="text-[#ffffff] bg-[#F9607CF0]">4</SelectItem>
-                        <SelectItem key="5" value="5" className="text-[#ffffff] bg-[#F9607CF0]">5</SelectItem>
-                        <SelectItem key="6" value="6" className="text-[#ffffff] bg-[#F9607CF0]">6</SelectItem>
-                      </Select>
-                       </div>
-                      
-                       
-                       <div>
-                       <Select onChange={handleStepMonth_3} variant="bordered"
-                         label="Months 2nd sprint" className="w-[187px]" radius="lg" size="sm">
-                        <SelectItem key="1" value="1" className="text-[#ffffff] bg-[#F9607CF0]">1</SelectItem>
-                        <SelectItem key="2" value="2" className="text-[#ffffff] bg-[#F9607CF0]">2</SelectItem>
-                        <SelectItem key="3" value="3" className="text-[#ffffff] bg-[#F9607CF0]">3</SelectItem>
-                        <SelectItem key="4" value="4" className="text-[#ffffff] bg-[#F9607CF0]">4</SelectItem>
-                        <SelectItem key="5" value="5" className="text-[#ffffff] bg-[#F9607CF0]">5</SelectItem>
-                        <SelectItem key="6" value="6" className="text-[#ffffff] bg-[#F9607CF0]">6</SelectItem>
-                      </Select>
-                       </div>
-                      
-                       <div>
-                       <Select onChange={handleStepMonth_4} variant="bordered"
-                         label="Months last force" className="w-[187px]" radius="lg" size="sm">
-                        <SelectItem key="1" value="1" className="text-[#ffffff] bg-[#F9607CF0]">1</SelectItem>
-                        <SelectItem key="2" value="2" className="text-[#ffffff] bg-[#F9607CF0]">2</SelectItem>
-                        <SelectItem key="3" value="3" className="text-[#ffffff] bg-[#F9607CF0]">3</SelectItem>
-                        <SelectItem key="4" value="4" className="text-[#ffffff] bg-[#F9607CF0]">4</SelectItem>
-                        <SelectItem key="5" value="5" className="text-[#ffffff] bg-[#F9607CF0]">5</SelectItem>
-                        <SelectItem key="6" value="6" className="text-[#ffffff] bg-[#F9607CF0]">6</SelectItem>
-                      </Select>
-                       </div>
-                     </> 
-                     : "" }
-                      
-                    
-                    
-    {/* 5 STEPS */}
-                    {amountSteps != "5" ? "" :
-                     <>
-                     <div >
-                      <Select onChange={handleStepMonth_1} variant="bordered"
-                        label="Months Seed" className="w-[187px] text-[#1d9fab]" radius="lg" size="sm">
-                       <SelectItem key="1" value="1" className="text-[#ffffff] bg-[#F9607CF0]">1</SelectItem>
-                       <SelectItem key="2" value="2" className="text-[#ffffff] bg-[#F9607CF0]">2</SelectItem>
-                       <SelectItem key="3" value="3" className="text-[#ffffff] bg-[#F9607CF0]">3</SelectItem>
-                     </Select>
-                      </div>
-                       <div>
-                       <Select onChange={handleStepMonth_2} variant="bordered"
-                         label="Months 1st sprint" className="w-[187px]" radius="lg" size="sm">
-                        <SelectItem key="1" value="1" className="text-[#ffffff] bg-[#F9607CF0]">1</SelectItem>
-                        <SelectItem key="2" value="2" className="text-[#ffffff] bg-[#F9607CF0]">2</SelectItem>
-                        <SelectItem key="3" value="3" className="text-[#ffffff] bg-[#F9607CF0]">3</SelectItem>
-                        <SelectItem key="4" value="4" className="text-[#ffffff] bg-[#F9607CF0]">4</SelectItem>
-                        <SelectItem key="5" value="5" className="text-[#ffffff] bg-[#F9607CF0]">5</SelectItem>
-                        <SelectItem key="6" value="6" className="text-[#ffffff] bg-[#F9607CF0]">6</SelectItem>
-                      </Select>
-                       </div>
-                       <div>
-                       <Select onChange={handleStepMonth_3} variant="bordered"
-                         label="Months 2nd sprint" className="w-[187px]" radius="lg" size="sm">
-                        <SelectItem key="1" value="1" className="text-[#ffffff] bg-[#F9607CF0]">1</SelectItem>
-                        <SelectItem key="2" value="2" className="text-[#ffffff] bg-[#F9607CF0]">2</SelectItem>
-                        <SelectItem key="3" value="3" className="text-[#ffffff] bg-[#F9607CF0]">3</SelectItem>
-                        <SelectItem key="4" value="4" className="text-[#ffffff] bg-[#F9607CF0]">4</SelectItem>
-                        <SelectItem key="5" value="5" className="text-[#ffffff] bg-[#F9607CF0]">5</SelectItem>
-                        <SelectItem key="6" value="6" className="text-[#ffffff] bg-[#F9607CF0]">6</SelectItem>
-                      </Select>
-                       </div>
-                       <div>
-                       <Select onChange={handleStepMonth_4} variant="bordered"
-                         label="Months 3rd sprint" className="w-[187px]" radius="lg" size="sm">
-                        <SelectItem key="1" value="1" className="text-[#ffffff] bg-[#F9607CF0]">1</SelectItem>
-                        <SelectItem key="2" value="2" className="text-[#ffffff] bg-[#F9607CF0]">2</SelectItem>
-                        <SelectItem key="3" value="3" className="text-[#ffffff] bg-[#F9607CF0]">3</SelectItem>
-                        <SelectItem key="4" value="4" className="text-[#ffffff] bg-[#F9607CF0]">4</SelectItem>
-                        <SelectItem key="5" value="5" className="text-[#ffffff] bg-[#F9607CF0]">5</SelectItem>
-                        <SelectItem key="6" value="6" className="text-[#ffffff] bg-[#F9607CF0]">6</SelectItem>
-                      </Select>
-                       </div>
-                       <div>
-                       <Select onChange={handleStepMonth_5} variant="bordered"
-                         label="Months last force" className="w-[187px]" radius="lg" size="sm">
-                        <SelectItem key="1" value="1" className="text-[#ffffff] bg-[#F9607CF0]">1</SelectItem>
-                        <SelectItem key="2" value="2" className="text-[#ffffff] bg-[#F9607CF0]">2</SelectItem>
-                        <SelectItem key="3" value="3" className="text-[#ffffff] bg-[#F9607CF0]">3</SelectItem>
-                        <SelectItem key="4" value="4" className="text-[#ffffff] bg-[#F9607CF0]">4</SelectItem>
-                        <SelectItem key="5" value="5" className="text-[#ffffff] bg-[#F9607CF0]">5</SelectItem>
-                        <SelectItem key="6" value="6" className="text-[#ffffff] bg-[#F9607CF0]">6</SelectItem>
-                      </Select>
-                       </div>
-                    </>
-                    }
-    {/* 6 STEPS */}
-                     {amountSteps != "6" ? "" :
-                     <>
-                     <div >
-                      <Select onChange={handleStepMonth_1} variant="bordered"
-                        label="Months Seed" className="w-[187px] text-[#1d9fab]" radius="lg" size="sm">
-                       <SelectItem key="1" value="1" className="text-[#ffffff] bg-[#F9607CF0]">1</SelectItem>
-                       <SelectItem key="2" value="2" className="text-[#ffffff] bg-[#F9607CF0]">2</SelectItem>
-                       <SelectItem key="3" value="3" className="text-[#ffffff] bg-[#F9607CF0]">3</SelectItem>
-                     </Select>
-                      </div>
-                       <div>
-                       <Select onChange={handleStepMonth_2} variant="bordered"
-                         label="Months 1st sprint" className="w-[187px]" radius="lg" size="sm">
-                        <SelectItem key="1" value="1" className="text-[#ffffff] bg-[#F9607CF0]">1</SelectItem>
-                        <SelectItem key="2" value="2" className="text-[#ffffff] bg-[#F9607CF0]">2</SelectItem>
-                        <SelectItem key="3" value="3" className="text-[#ffffff] bg-[#F9607CF0]">3</SelectItem>
-                        <SelectItem key="4" value="4" className="text-[#ffffff] bg-[#F9607CF0]">4</SelectItem>
-                        <SelectItem key="5" value="5" className="text-[#ffffff] bg-[#F9607CF0]">5</SelectItem>
-                        <SelectItem key="6" value="6" className="text-[#ffffff] bg-[#F9607CF0]">6</SelectItem>
-                      </Select>
-                       </div>
-                       <div>
-                       <Select onChange={handleStepMonth_3} variant="bordered"
-                         label="Months 2nd sprint" className="w-[187px]" radius="lg" size="sm">
-                        <SelectItem key="1" value="1" className="text-[#ffffff] bg-[#F9607CF0]">1</SelectItem>
-                        <SelectItem key="2" value="2" className="text-[#ffffff] bg-[#F9607CF0]">2</SelectItem>
-                        <SelectItem key="3" value="3" className="text-[#ffffff] bg-[#F9607CF0]">3</SelectItem>
-                        <SelectItem key="4" value="4" className="text-[#ffffff] bg-[#F9607CF0]">4</SelectItem>
-                        <SelectItem key="5" value="5" className="text-[#ffffff] bg-[#F9607CF0]">5</SelectItem>
-                        <SelectItem key="6" value="6" className="text-[#ffffff] bg-[#F9607CF0]">6</SelectItem>
-                      </Select>
-                       </div>
-                       <div>
-                       <Select onChange={handleStepMonth_4} variant="bordered"
-                         label="Months 3rd sprint" className="w-[187px]" radius="lg" size="sm">
-                        <SelectItem key="1" value="1" className="text-[#ffffff] bg-[#F9607CF0]">1</SelectItem>
-                        <SelectItem key="2" value="2" className="text-[#ffffff] bg-[#F9607CF0]">2</SelectItem>
-                        <SelectItem key="3" value="3" className="text-[#ffffff] bg-[#F9607CF0]">3</SelectItem>
-                        <SelectItem key="4" value="4" className="text-[#ffffff] bg-[#F9607CF0]">4</SelectItem>
-                        <SelectItem key="5" value="5" className="text-[#ffffff] bg-[#F9607CF0]">5</SelectItem>
-                        <SelectItem key="6" value="6" className="text-[#ffffff] bg-[#F9607CF0]">6</SelectItem>
-                      </Select>
-                       </div>
-                       <div>
-                       <Select onChange={handleStepMonth_5} variant="bordered"
-                         label="Months 4th sprint" className="w-[187px]" radius="lg" size="sm">
-                        <SelectItem key="1" value="1" className="text-[#ffffff] bg-[#F9607CF0]">1</SelectItem>
-                        <SelectItem key="2" value="2" className="text-[#ffffff] bg-[#F9607CF0]">2</SelectItem>
-                        <SelectItem key="3" value="3" className="text-[#ffffff] bg-[#F9607CF0]">3</SelectItem>
-                        <SelectItem key="4" value="4" className="text-[#ffffff] bg-[#F9607CF0]">4</SelectItem>
-                        <SelectItem key="5" value="5" className="text-[#ffffff] bg-[#F9607CF0]">5</SelectItem>
-                        <SelectItem key="6" value="6" className="text-[#ffffff] bg-[#F9607CF0]">6</SelectItem>
-                      </Select>
-                       </div>
-                       <div>
-                       <Select onChange={handleStepMonth_6} variant="bordered"
-                         label="Months last force" className="w-[187px]" radius="lg" size="sm">
-                        <SelectItem key="1" value="1" className="text-[#ffffff] bg-[#F9607CF0]">1</SelectItem>
-                        <SelectItem key="2" value="2" className="text-[#ffffff] bg-[#F9607CF0]">2</SelectItem>
-                        <SelectItem key="3" value="3" className="text-[#ffffff] bg-[#F9607CF0]">3</SelectItem>
-                        <SelectItem key="4" value="4" className="text-[#ffffff] bg-[#F9607CF0]">4</SelectItem>
-                        <SelectItem key="5" value="5" className="text-[#ffffff] bg-[#F9607CF0]">5</SelectItem>
-                        <SelectItem key="6" value="6" className="text-[#ffffff] bg-[#F9607CF0]">6</SelectItem>
-                      </Select>
-                       </div>
-                    </>
-                    }
-   
+
+                     <AmountStepsSelects 
+                        amountSteps={amountSteps}
+                        handleStepMonth_1={(event) => setStepMonth_1(event.target.value)}
+                        handleStepMonth_2={(event) => setStepMonth_2(event.target.value)}
+                        handleStepMonth_3={(event) => setStepMonth_3(event.target.value)}
+                        handleStepMonth_4={(event) => setStepMonth_4(event.target.value)}
+                        handleStepMonth_5={(event) => setStepMonth_5(event.target.value)}
+                        handleStepMonth_6={(event) => setStepMonth_5(event.target.value)}
+                     />
+
                     <>
                       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
                         <ModalContent className="flex flex-col items-center">
@@ -781,7 +595,7 @@ export default function Home() {
                                   color="primary"
                                   onPress={createProject}
                                 >
-                                  Let's do it 
+                                  Let's do it
                                 </Button>
                               </ModalFooter>
                             </>
